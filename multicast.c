@@ -17,8 +17,8 @@ just one host and as a receiver on all the other hosts
 #include <time.h>
 #include <stdio.h>
 
-#define EXAMPLE_PORT 6000
-#define EXAMPLE_GROUP "239.0.0.1"
+#define EXAMPLE_PORT 4598
+#define EXAMPLE_GROUP "224.222.222.222"
 
 main(int argc)
 {
@@ -77,7 +77,7 @@ main(int argc)
 	 } else if (cnt == 0) {
  	    break;
 	 }
-	 printf("%s: message = \"%s\"\n", inet_ntoa(addr.sin_addr), message);
+	 printf("len: %d %s: message = \"%s\"\n", cnt, inet_ntoa(addr.sin_addr), message);
         }
     }
 }

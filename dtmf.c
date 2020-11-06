@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    teletone_dtmf_detect_state_t dtmf_detect;
+    teletone_dtmf_detect_state_t dtmf_detect = {0};
     int rate = 8000;
     int fd = -1;
     unsigned char data[8000 * 2];
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
         if (len <=0) break;
 
         teletone_hit_type_t ret = teletone_dtmf_detect(&dtmf_detect, (short *)data, len / 2);
-        printf("ret = %d\n", ret);
+        // printf("ret = %d\n", ret);
 
         if (ret == TT_HIT_END) {
             teletone_dtmf_get(&dtmf_detect, &digit, &duration);
